@@ -1,5 +1,6 @@
 #booking-form {
-  height: 100%;
+  padding: 4rem 0;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -34,6 +35,10 @@
   font-weight: 500;
 }
 
+.form-field label span.mandatory {
+  color: red;
+}
+
 .form-field input,
 .form-field select {
   width: 100%;
@@ -44,4 +49,15 @@
 
 .form-field p {
   margin: 0;
+}
+
+.form-field .error {
+  color: red;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.form-field .input-error {
+  color: red;
+  border-color: red;
 }

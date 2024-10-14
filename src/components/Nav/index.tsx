@@ -1,13 +1,15 @@
-import React from "react";
 import "./index.css";
 import Button from "../Button";
+import Logo from "../../img/Logo.png";
+import Burger from "../../img/burger.png";
 
 type Props = {};
 
-const Nav = (props: Props) => {
+const Nav = ({}: Props) => {
   return (
     <div className="header">
-      <img id="logo" src="https://avatar.iran.liara.run/public/45" alt="Logo" />
+      <img id="logo" src={Logo} alt="Logo" />
+      <img id="menu-burger" src={Burger} alt="Menu" />
       <nav>
         <ul>
           <li>
@@ -17,12 +19,12 @@ const Nav = (props: Props) => {
           </li>
           <li>
             <a className="nav-link" href="#projects">
-              Menu
+              About
             </a>
           </li>
           <li>
             <a className="nav-link" href="#book">
-              Book
+              Testimony
             </a>
           </li>
           <li>

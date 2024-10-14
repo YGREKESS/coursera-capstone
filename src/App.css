@@ -20,3 +20,13 @@
   max-height: 100vh;
   object-fit: cover;
 }
+
+@media screen and (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .content img {
+    display: none;
+  }
+}

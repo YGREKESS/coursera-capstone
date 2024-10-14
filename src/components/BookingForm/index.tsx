@@ -6,14 +6,14 @@ import Button from "../Button";
 
 // Define validation schema with Yup
 const validationSchema = Yup.object({
-  lastName: Yup.string().required("Lastname is required"),
-  email: Yup.string().email("Email is invalid").required("Email is required"),
+  lastName: Yup.string().required("Lastname is required."),
+  email: Yup.string().email("Email is invalid.").required("Email is required."),
   guests: Yup.number()
-    .min(1, "At least 1 guest required")
-    .max(6, "Max 6 guests allowed")
-    .required("Guests number is required"),
-  date: Yup.string().required("Date is required"),
-  time: Yup.string().required("Time is required"),
+    .min(1, "At least 1 guest required.")
+    .max(6, "Max 6 guests allowed.")
+    .required("Guests number is required."),
+  date: Yup.string().required("Date is required."),
+  time: Yup.string().required("Time is required."),
 });
 
 const BookingForm: React.FC = () => {
@@ -38,7 +38,9 @@ const BookingForm: React.FC = () => {
       <h2>Reserve a table</h2>
       <form onSubmit={formik.handleSubmit}>
         <div className="form-field">
-          <label htmlFor="lastName">Lastname</label>
+          <label htmlFor="lastName">
+            Lastname <span className="mandatory">*</span>
+          </label>
           <input
             type="text"
             id="lastName"
@@ -46,14 +48,19 @@ const BookingForm: React.FC = () => {
             value={formik.values.lastName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            className={`${
+              formik.touched.lastName && formik.errors.lastName && "input-error"
+            }`}
           />
           {formik.touched.lastName && formik.errors.lastName ? (
-            <p style={{ color: "red" }}>{formik.errors.lastName}</p>
+            <p className="error">{formik.errors.lastName}</p>
           ) : null}
         </div>
 
         <div className="form-field">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">
+            Email <span className="mandatory">*</span>
+          </label>
           <input
             type="email"
             id="email"
@@ -61,9 +68,12 @@ const BookingForm: React.FC = () => {
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            className={`${
+              formik.touched.email && formik.errors.email && "input-error"
+            }`}
           />
           {formik.touched.email && formik.errors.email ? (
-            <p style={{ color: "red" }}>{formik.errors.email}</p>
+            <p className="error">{formik.errors.email}</p>
           ) : null}
         </div>
 
@@ -75,6 +85,9 @@ const BookingForm: React.FC = () => {
             value={formik.values.guests}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            className={`${
+              formik.touched.guests && formik.errors.guests && "input-error"
+            }`}
           >
             {[1, 2, 3, 4, 5, 6].map((num) => (
               <option key={num} value={num}>
@@ -83,12 +96,14 @@ const BookingForm: React.FC = () => {
             ))}
           </select>
           {formik.touched.guests && formik.errors.guests ? (
-            <p style={{ color: "red" }}>{formik.errors.guests}</p>
+            <p className="error">{formik.errors.guests}</p>
           ) : null}
         </div>
 
         <div className="form-field">
-          <label htmlFor="date">Date</label>
+          <label htmlFor="date">
+            Date <span className="mandatory">*</span>
+          </label>
           <input
             type="date"
             id="date"
@@ -96,14 +111,19 @@ const BookingForm: React.FC = () => {
             value={formik.values.date}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            className={`${
+              formik.touched.date && formik.errors.date && "input-error"
+            }`}
           />
           {formik.touched.date && formik.errors.date ? (
-            <p style={{ color: "red" }}>{formik.errors.date}</p>
+            <p className="error">{formik.errors.date}</p>
           ) : null}
         </div>
 
         <div className="form-field">
-          <label htmlFor="time">Time</label>
+          <label htmlFor="time">
+            Time <span className="mandatory">*</span>
+          </label>
           <input
             type="time"
             id="time"
@@ -111,9 +131,12 @@ const BookingForm: React.FC = () => {
             value={formik.values.time}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            className={`${
+              formik.touched.time && formik.errors.time && "input-error"
+            }`}
           />
           {formik.touched.time && formik.errors.time ? (
-            <p style={{ color: "red" }}>{formik.errors.time}</p>
+            <p className="error">{formik.errors.time}</p>
           ) : null}
         </div>
 
